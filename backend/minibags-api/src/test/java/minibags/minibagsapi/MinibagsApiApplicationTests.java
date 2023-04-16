@@ -1,10 +1,10 @@
-package minibagsbolsas.api;
+package minibags.minibagsapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiApplicationTests {
+class MinibagsApiApplicationTests {
 
 	@Test
 	void contextLoads() {
