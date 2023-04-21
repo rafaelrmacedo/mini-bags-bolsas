@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "produtos")
-public @Data class ProductModel { //@Data from lombok for hide boiler plate code
+public @Data class Product { //@Data from lombok for hide boiler plate code
 
 	@Id
 	@NotEmpty(message = "")
