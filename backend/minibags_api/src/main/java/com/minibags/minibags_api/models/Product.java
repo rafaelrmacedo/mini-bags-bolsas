@@ -1,38 +1,86 @@
 package com.minibags.minibags_api.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
+import jakarta.persistence.*;
 
-import lombok.Data;
+import java.util.Objects;
 
 @Entity
 @Table(name = "produtos")
-public @Data class Product { //@Data from lombok for hide boiler plate code
+public class Product { 
 
 	@Id
-	@NotEmpty(message = "")
 	@Column(name = "referencia")
 	private String reference;
 	
-	@NotEmpty(message = "Referencia não pode ser nula.")
 	@Column(name = "nome")
 	private String name;
 	
-	@NotEmpty(message = "Valor não pode ser nulo.")
 	@Column(name = "valor")
 	private float value;
 	
-	@NotEmpty(message = "Tamanho não pode ser nulo.")
 	@Column(name = "tamanho")
 	private String size;
 	
-	@NotEmpty(message = "Linha não pode ser nula.")
 	@Column(name = "linha")
 	private String line;
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public float getValue() {
+		return value;
+	}
+
+	public void setValue(float value) {
+		this.value = value;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public String getLine() {
+		return line;
+	}
+
+	public void setLine(String line) {
+		this.line = line;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(line, name, reference, size, value);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		return Objects.equals(line, other.line) && Objects.equals(name, other.name)
+				&& Objects.equals(reference, other.reference) && Objects.equals(size, other.size)
+				&& Float.floatToIntBits(value) == Float.floatToIntBits(other.value);
+	}
 	
 }

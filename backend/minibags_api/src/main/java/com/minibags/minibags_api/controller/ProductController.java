@@ -1,42 +1,42 @@
 package com.minibags.minibags_api.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.minibags.minibags_api.models.*;
-import com.minibags.minibags_api.repository.*;
-import com.minibags.minibags_api.services.*;
+import com.minibags.minibags_api.models.Product;
+import com.minibags.minibags_api.repository.ProductRepository;
 
+@CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("adicionar-produtos")
+@RequestMapping("/produtos")
 public class ProductController {
-	
-	@Autowired
-	private ProductService productService;
 	
 	@Autowired
 	private ProductRepository productRepository;
 
 	@PostMapping("/adicionar-produtos")
-	public ProductRepository addProduct(Product reqData){
-		return null;
+	public Product addProduct(@RequestBody Product product){
+		return productRepository.save(product);
 	}
 
 	@GetMapping("/todos-produtos")
-	public ProductRepository getAllProducts() {
-		return null;
+	public List<Product> getAllProducts() {
+		return productRepository.findAll();
 	}
 
 	@GetMapping("/procurar-produto-por-referencia/{reference}")
-	public ProductRepository getProductById(@PathVariable("reference") String reference) {
-		return null;
+	public Object getProductById(@PathVariable("reference") String reference) {
+		return productRepository.findById(reference);
 	}
 
 	@PutMapping("/atualizar-produto")
