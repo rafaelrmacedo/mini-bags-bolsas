@@ -24,6 +24,11 @@ public class Product {
 	@Column(name = "linha")
 	private String line;
 
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getReference() {
 		return reference;
 	}
