@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.minibags.minibags_api.models.Product;
+import com.minibags.minibags_api.models.ProductModel;
 import com.minibags.minibags_api.repository.ProductRepository;
 
 @CrossOrigin(origins = "http://localhost:8080")
@@ -25,12 +25,12 @@ public class ProductController {
 	private ProductRepository productRepository;
 
 	@PostMapping("/adicionar-produtos")
-	public Product addProduct(@RequestBody Product product){
+	public ProductModel addProduct(@RequestBody ProductModel product){
 		return productRepository.save(product);
 	}
 
 	@GetMapping("/todos-produtos")
-	public List<Product> getAllProducts() {
+	public List<ProductModel> getAllProducts() {
 		return productRepository.findAll();
 	}
 
@@ -40,7 +40,7 @@ public class ProductController {
 	}
 
 	@PutMapping("/atualizar-produto")
-	public ProductRepository updateProduct(@RequestBody Product reqData) {
+	public ProductRepository updateProduct(@RequestBody ProductModel reqData) {
 		return null;
 	}
 
