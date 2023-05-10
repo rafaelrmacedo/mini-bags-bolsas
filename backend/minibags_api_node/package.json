@@ -1,0 +1,11 @@
+{
+  "name": "minibags_api_node",
+  "version": "1.0.0",
+  "description": "Node API for MiniBagsBolsas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rafael Macedo",
+  "license": "MIT"
+}
