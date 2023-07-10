@@ -21,6 +21,11 @@ export default function NewProductForm() {
                 <label htmlFor="input-tamanho">Tamanho</label>
                 <input type="text" className="flex flex-1 flex-col" id="input-tamanho" placeholder="Ex: 20cm x 20cm x 2cm"/>
             </div>
+            <button type="submit"
+                className="bg-cyan-950 p-2 m-4 text-white rounded hover:bg-cyan-500 hover:text-black
+                delay-50">
+                Adicionar
+            </button>
         </form>
     )   
 }
